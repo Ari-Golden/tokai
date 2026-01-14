@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
 import withPWA from 'next-pwa'
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
@@ -8,8 +8,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    // disable Turbopack
+    turbo: false,
+  },
 }
 
+// Konfigurasi PWA
 const pwaConfig = withPWA({
   dest: 'public',
   register: true,

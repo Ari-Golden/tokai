@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build --webpack",
-    "dev": "next dev --webpack",
-    "lint": "eslint .",
-    "start": "next start"
-  },
+  "dev": "next dev",
+  "build": "next build --webpack",
+  "start": "next start --webpack"
+}
+  ,
   "dependencies": {
     "@base-ui/react": "1.0.0",
     "@hookform/resolvers": "^3.10.0",
