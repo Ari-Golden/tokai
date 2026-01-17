@@ -140,7 +140,24 @@
 }
 
 .neon-glow {
-  text-shadow: 0 0 10px rgba(13, 242, 242, 0.5);
+  text-shadow: 0 0 15px rgba(13, 242, 242, 0.5);
+}
+
+.neon-glow-green {
+  text-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+}
+
+.neon-glow-orange {
+  text-shadow: 0 0 15px rgba(249, 115, 22, 0.5);
+}
+
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .status-green { color: #22c55e; }

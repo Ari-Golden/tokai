@@ -23,15 +23,26 @@ export interface BirthdayEmployee {
   photo?: string
 }
 
+export interface CondolenceNews {
+  id: string
+  name: string
+  department: string
+  message: string
+  date: string
+  active: boolean
+}
+
 export interface BoardData {
   safety: SafetyData
   announcements: Announcement[]
   birthdays: BirthdayEmployee[]
+  condolences: CondolenceNews[]
 }
 
 const STORAGE_KEY = "safety_performance_data"
 const ANNOUNCEMENTS_KEY = "board_announcements"
 const BIRTHDAYS_KEY = "board_birthdays"
+const CONDOLENCES_KEY = "board_condolences"
 
 const DEFAULT_SAFETY: SafetyData = {
   workers: 600,
@@ -86,6 +97,8 @@ const DEFAULT_BIRTHDAYS: BirthdayEmployee[] = [
     birthDate: "01-20",
   },
 ]
+
+const DEFAULT_CONDOLENCES: CondolenceNews[] = []
 
 // Safety Data Functions
 export function getData(): SafetyData {
@@ -169,4 +182,26 @@ export function getTodayBirthdays(): BirthdayEmployee[] {
   const todayStr = `${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`
   
   return birthdays.filter(b => b.birthDate === todayStr)
+}
+
+// Condolence Functions
+export function getCondolences(): CondolenceNews[] {
+  if (typeof window === "undefined") return DEFAULT_CONDOLENCES
+
+  try {
+    const data = localStorage.getItem(CONDOLENCES_KEY)
+    return data ? JSON.parse(data) : DEFAULT_CONDOLENCES
+  } catch {
+    return DEFAULT_CONDOLENCES
+  }
+}
+
+export function saveCondolences(data: CondolenceNews[]): void {
+  if (typeof window === "undefined") return
+
+  try {
+    localStorage.setItem(CONDOLENCES_KEY, JSON.stringify(data))
+  } catch (error) {
+    console.error("Error saving condolences:", error)
+  }
 }
