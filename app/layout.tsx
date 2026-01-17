@@ -1,14 +1,13 @@
 "use client"
 
 import type React from "react"
-import { Roboto } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
 import { useExitOnEscape } from "@/hooks/use-exit-on-escape"
 
-const fontSans = Roboto({
-  weight: ["400", "700", "900"],
-  subsets: ["latin"],
+const fontSans = Inter({
   variable: "--font-sans",
+  subsets: ["latin"],
 })
 
 export default function RootLayout({
@@ -33,6 +32,10 @@ export default function RootLayout({
         />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>{children}</body>
     </html>

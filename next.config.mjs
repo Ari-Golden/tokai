@@ -19,7 +19,7 @@ const pwaConfig = withPWA({
   dest: 'public',
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
+  disable: true, // Paksa nonaktifkan PWA selama development agar tidak ada cache yang mengganggu
 })
 
 export default pwaConfig(nextConfig)
