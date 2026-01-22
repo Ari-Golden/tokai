@@ -215,3 +215,19 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
+/* Vertical Running Text Animation (Bottom to Top) */
+@keyframes marquee-vertical {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical 20s linear infinite;
+}
+
+.marquee-vertical-container {
+  overflow: hidden;
+  height: 100%;
+}
+

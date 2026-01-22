@@ -225,69 +225,71 @@ export function InformationBoard() {
           </div>
 
           {/* Right Side: 4 Columns - Announcements & Birthday */}
-          <div className="col-span-4 flex flex-col gap-2 md:gap-3 xl:gap-4">
+          <div className="col-span-4 flex flex-col gap-2 md:gap-2">
             
-            {/* Announcements Panel */}
-            <div className="glass-card rounded-lg md:rounded-xl xl:rounded-2xl flex-1 flex flex-col overflow-hidden border-t-4 xl:border-t-6 border-t-[#0df2f2]/40 shadow-xl">
-              <div className="px-3 md:px-4 xl:px-6 py-2 md:py-2.5 xl:py-3 border-b border-[#0df2f2]/20 flex items-center justify-between bg-[#0df2f2]/10 shrink-0">
-                <h3 className="text-white font-black text-xs md:text-sm xl:text-base flex items-center gap-1.5 md:gap-2">
-                  <span className="material-symbols-outlined text-[#0df2f2] text-base md:text-lg xl:text-xl">campaign</span>
-                  PAPAN PENGUMUMAN
+            {/* Announcements Panel - Compact with Vertical Scroll */}
+            <div className="glass-card rounded-lg md:rounded-xl flex-1 flex flex-col overflow-hidden border-t-2 md:border-t-4 border-t-[#0df2f2]/40 shadow-xl max-h-[45%]">
+              <div className="px-2 md:px-3 py-1.5 md:py-2 border-b border-[#0df2f2]/20 flex items-center bg-[#0df2f2]/10 shrink-0">
+                <h3 className="text-white font-black text-[10px] md:text-xs flex items-center gap-1 md:gap-1.5">
+                  <span className="material-symbols-outlined text-[#0df2f2] text-sm md:text-base">campaign</span>
+                  PENGUMUMAN
                 </h3>
               </div>
-              <div className="flex-1 overflow-y-auto p-2 md:p-3 xl:p-4 space-y-2 md:space-y-2.5 xl:space-y-3 scroll-hide">
-                {activeAnnouncements.length > 0 ? (
-                  activeAnnouncements.map((ann, idx) => (
-                    <div 
-                      key={ann.id} 
-                      className={`flex gap-2 md:gap-3 p-2 md:p-3 xl:p-4 rounded-lg md:rounded-xl border transition-colors ${
-                        idx === 0 
-                          ? 'bg-slate-900/60 border-[#0df2f2]/20 hover:bg-slate-900/80' 
-                          : 'bg-slate-950/30 border-slate-700/30'
-                      }`}
-                    >
-                      <div className={`flex items-center justify-center rounded-md md:rounded-lg shrink-0 size-8 md:size-10 xl:size-12 ${
-                        idx === 0 ? 'text-[#0df2f2] bg-[#0df2f2]/10' : 'text-slate-400 bg-slate-800'
-                      }`}>
-                        <span className="material-symbols-outlined text-sm md:text-base xl:text-lg">{getAnnouncementIcon(idx)}</span>
+              <div className="flex-1 marquee-vertical-container p-1.5 md:p-2">
+                <div className="animate-marquee-vertical space-y-1.5 md:space-y-2">
+                  {activeAnnouncements.length > 0 ? (
+                    activeAnnouncements.map((ann, idx) => (
+                      <div 
+                        key={ann.id} 
+                        className={`flex gap-1.5 md:gap-2 p-1.5 md:p-2 rounded-md md:rounded-lg border ${
+                          idx === 0 
+                            ? 'bg-slate-900/60 border-[#0df2f2]/20' 
+                            : 'bg-slate-950/30 border-slate-700/30'
+                        }`}
+                      >
+                        <div className={`flex items-center justify-center rounded-md shrink-0 size-6 md:size-8 ${
+                          idx === 0 ? 'text-[#0df2f2] bg-[#0df2f2]/10' : 'text-slate-400 bg-slate-800'
+                        }`}>
+                          <span className="material-symbols-outlined text-xs md:text-sm">{getAnnouncementIcon(idx)}</span>
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className={`text-[9px] md:text-[10px] leading-tight mb-0.5 ${idx === 0 ? 'text-white font-black' : 'text-white font-bold'}`}>{ann.title}</p>
+                          <p className="text-slate-400 text-[8px] md:text-[9px] line-clamp-2">{ann.content}</p>
+                        </div>
                       </div>
-                      <div className="min-w-0">
-                        <p className={`text-[10px] md:text-xs xl:text-sm leading-tight mb-0.5 truncate ${idx === 0 ? 'text-white font-black' : 'text-white font-bold'}`}>{ann.title}</p>
-                        <p className="text-slate-400 text-[9px] md:text-[10px] xl:text-xs line-clamp-2">{ann.content}</p>
+                    ))
+                  ) : (
+                    <>
+                      <div className="flex gap-1.5 md:gap-2 bg-slate-900/60 p-1.5 md:p-2 rounded-md md:rounded-lg border border-[#0df2f2]/20">
+                        <div className="text-[#0df2f2] flex items-center justify-center rounded-md bg-[#0df2f2]/10 shrink-0 size-6 md:size-8">
+                          <span className="material-symbols-outlined text-xs md:text-sm">record_voice_over</span>
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-white text-[9px] md:text-[10px] font-black mb-0.5 leading-tight">Safety Briefing Pagi</p>
+                          <p className="text-slate-400 text-[8px] md:text-[9px]">Wajib hadir jam 08:00 AM di Area Produksi.</p>
+                        </div>
                       </div>
-                    </div>
-                  ))
-                ) : (
-                  <>
-                    <div className="flex gap-2 md:gap-3 bg-slate-900/60 p-2 md:p-3 xl:p-4 rounded-lg md:rounded-xl border border-[#0df2f2]/20 hover:bg-slate-900/80 transition-colors">
-                      <div className="text-[#0df2f2] flex items-center justify-center rounded-md md:rounded-lg bg-[#0df2f2]/10 shrink-0 size-8 md:size-10 xl:size-12">
-                        <span className="material-symbols-outlined text-sm md:text-base xl:text-lg">record_voice_over</span>
+                      <div className="flex gap-1.5 md:gap-2 bg-slate-950/30 p-1.5 md:p-2 rounded-md md:rounded-lg border border-slate-700/30">
+                        <div className="text-slate-400 flex items-center justify-center rounded-md bg-slate-800 shrink-0 size-6 md:size-8">
+                          <span className="material-symbols-outlined text-xs md:text-sm">engineering</span>
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-white text-[9px] md:text-[10px] font-bold mb-0.5 leading-tight">Maintenance Jalur 3</p>
+                          <p className="text-slate-400 text-[8px] md:text-[9px]">Jalur 3 berhenti pukul 16:00 untuk overhaul.</p>
+                        </div>
                       </div>
-                      <div className="min-w-0">
-                        <p className="text-white text-[10px] md:text-xs xl:text-sm font-black mb-0.5 leading-tight">Safety Briefing Pagi</p>
-                        <p className="text-slate-400 text-[9px] md:text-[10px] xl:text-xs">Wajib hadir jam 08:00 AM di Area Produksi Utama.</p>
+                      <div className="flex gap-1.5 md:gap-2 bg-slate-950/30 p-1.5 md:p-2 rounded-md md:rounded-lg border border-slate-700/30">
+                        <div className="text-slate-400 flex items-center justify-center rounded-md bg-slate-800 shrink-0 size-6 md:size-8">
+                          <span className="material-symbols-outlined text-xs md:text-sm">health_and_safety</span>
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-white text-[9px] md:text-[10px] font-bold mb-0.5 leading-tight">Inspeksi APD</p>
+                          <p className="text-slate-400 text-[8px] md:text-[9px]">Gunakan APD lengkap di area pabrik.</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex gap-2 md:gap-3 bg-slate-950/30 p-2 md:p-3 xl:p-4 rounded-lg md:rounded-xl border border-slate-700/30">
-                      <div className="text-slate-400 flex items-center justify-center rounded-md md:rounded-lg bg-slate-800 shrink-0 size-8 md:size-10 xl:size-12">
-                        <span className="material-symbols-outlined text-sm md:text-base xl:text-lg">engineering</span>
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-white text-[10px] md:text-xs xl:text-sm font-bold mb-0.5 leading-tight">Maintenance Jalur 3</p>
-                        <p className="text-slate-400 text-[9px] md:text-[10px] xl:text-xs">Jalur 3 akan berhenti beroperasi pukul 16:00 untuk overhaul.</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-2 md:gap-3 bg-slate-950/30 p-2 md:p-3 xl:p-4 rounded-lg md:rounded-xl border border-slate-700/30">
-                      <div className="text-slate-400 flex items-center justify-center rounded-md md:rounded-lg bg-slate-800 shrink-0 size-8 md:size-10 xl:size-12">
-                        <span className="material-symbols-outlined text-sm md:text-base xl:text-lg">health_and_safety</span>
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-white text-[10px] md:text-xs xl:text-sm font-bold mb-0.5 leading-tight">Inspeksi APD</p>
-                        <p className="text-slate-400 text-[9px] md:text-[10px] xl:text-xs">Pastikan menggunakan APD lengkap setiap saat di area pabrik.</p>
-                      </div>
-                    </div>
-                  </>
-                )}
+                    </>
+                  )}
+                </div>
               </div>
             </div>
 
