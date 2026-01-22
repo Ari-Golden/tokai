@@ -88,17 +88,16 @@ export function InformationBoard() {
         {/* Header - Compact for HD */}
         <header className="flex items-center justify-between border-b-2 border-[#0df2f2]/20 bg-slate-900/60 rounded-lg md:rounded-xl px-3 md:px-5 xl:px-8 py-2 md:py-3 xl:py-4 mb-2 md:mb-3 xl:mb-4 shadow-2xl backdrop-blur-md shrink-0">
           {/* Logo & Title */}
-          <div className="flex items-center gap-3 md:gap-4 xl:gap-6">
+          <div className="flex items-center gap-3 md:gap-4 xl:gap-6 min-w-0">
             <img
               src="/tokai.png"
               alt="Tokai Logo"
-              className="h-8 md:h-10 xl:h-14 w-auto object-contain"
+              className="h-8 md:h-10 xl:h-14 w-auto object-contain shrink-0"
             />
-            <div>
-              <h1 className="text-white text-sm md:text-lg xl:text-2xl font-black leading-none tracking-tight">PT. TOKAI RUBBER INDONESIA</h1>
-              <div className="flex items-center gap-1 md:gap-2 mt-0.5">
-                <div className="h-0.5 w-4 md:w-6 bg-[#0df2f2]"></div>
-                <p className="text-[#0df2f2] text-[10px] md:text-xs xl:text-sm font-extrabold tracking-[0.1em] uppercase">Safety Performance Board</p>
+            <div className="min-w-0">
+              <h1 className="text-white text-sm md:text-lg xl:text-2xl font-black leading-none tracking-tight whitespace-nowrap">PT. TOKAI RUBBER INDONESIA</h1>
+              <div className="flex items-center gap-1.5 md:gap-2 mt-0.5 md:mt-1">
+                <p className="text-[#0df2f2] text-[10px] md:text-xs xl:text-sm font-extrabold tracking-wider uppercase whitespace-nowrap">Safety Performance Board</p>
               </div>
             </div>
           </div>
