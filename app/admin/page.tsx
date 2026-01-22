@@ -158,45 +158,45 @@ export default function AdminPage() {
     }
   }
 
-  if (!safetyData) return <div style={styles.container}>Loading...</div>
+  if (!safetyData) return <div className="min-h-screen bg-slate-100 p-4 flex items-center justify-center text-slate-600">Loading...</div>
 
   return (
-    <div style={styles.container}>
+    <div className="min-h-screen bg-slate-100 p-2 md:p-3 xl:p-4 font-sans text-slate-900">
       {/* Header */}
-      <div style={styles.header}>
+      <div className="flex justify-between items-center mb-2 md:mb-3 bg-white p-2 md:p-3 xl:p-4 rounded-lg shadow-md">
         <div>
-          <h1 style={styles.title}>Admin Panel</h1>
-          <p style={styles.subtitle}>Safety Performance Board Management</p>
+          <h1 className="text-base md:text-lg xl:text-2xl font-extrabold text-slate-900 m-0">Admin Panel</h1>
+          <p className="text-slate-500 text-[10px] md:text-xs xl:text-sm m-0 mt-0.5">Safety Performance Board Management</p>
         </div>
-        <Link href="/" style={styles.backButton}>
-          ← Kembali ke Dashboard
+        <Link href="/" className="px-3 py-1.5 md:px-4 md:py-2 bg-slate-900 text-white no-underline rounded-md font-semibold text-xs md:text-sm hover:bg-slate-800 transition-colors">
+          ← Kembali
         </Link>
       </div>
 
-      {message && <div style={styles.message}>{message}</div>}
+      {message && <div className="bg-green-100 text-green-800 p-2 md:p-3 rounded-md mb-2 md:mb-3 font-semibold border border-green-300 text-xs md:text-sm">{message}</div>}
 
       {/* Tabs */}
-      <div style={styles.tabs}>
+      <div className="flex gap-1 md:gap-2 mb-2 md:mb-3 border-b-2 border-slate-200 pb-px overflow-x-auto">
         <button 
-          style={{...styles.tab, ...(activeTab === 'safety' ? styles.activeTab : {})}} 
+          className={`px-2 md:px-3 py-1.5 md:py-2 bg-transparent border-none border-b-2 border-transparent font-semibold cursor-pointer text-[10px] md:text-xs xl:text-sm -mb-0.5 transition-all whitespace-nowrap ${activeTab === 'safety' ? 'text-sky-600 border-sky-600' : 'text-slate-500'}`}
           onClick={() => setActiveTab('safety')}
         >
           Data Keselamatan
         </button>
         <button 
-          style={{...styles.tab, ...(activeTab === 'announcements' ? styles.activeTab : {})}} 
+          className={`px-2 md:px-3 py-1.5 md:py-2 bg-transparent border-none border-b-2 border-transparent font-semibold cursor-pointer text-[10px] md:text-xs xl:text-sm -mb-0.5 transition-all whitespace-nowrap ${activeTab === 'announcements' ? 'text-sky-600 border-sky-600' : 'text-slate-500'}`}
           onClick={() => setActiveTab('announcements')}
         >
           Pengumuman
         </button>
         <button 
-          style={{...styles.tab, ...(activeTab === 'birthdays' ? styles.activeTab : {})}} 
+          className={`px-2 md:px-3 py-1.5 md:py-2 bg-transparent border-none border-b-2 border-transparent font-semibold cursor-pointer text-[10px] md:text-xs xl:text-sm -mb-0.5 transition-all whitespace-nowrap ${activeTab === 'birthdays' ? 'text-sky-600 border-sky-600' : 'text-slate-500'}`}
           onClick={() => setActiveTab('birthdays')}
         >
           Ulang Tahun
         </button>
         <button 
-          style={{...styles.tab, ...(activeTab === 'condolences' ? styles.activeTab : {})}} 
+          className={`px-2 md:px-3 py-1.5 md:py-2 bg-transparent border-none border-b-2 border-transparent font-semibold cursor-pointer text-[10px] md:text-xs xl:text-sm -mb-0.5 transition-all whitespace-nowrap ${activeTab === 'condolences' ? 'text-sky-600 border-sky-600' : 'text-slate-500'}`}
           onClick={() => setActiveTab('condolences')}
         >
           Berita Duka
@@ -204,72 +204,72 @@ export default function AdminPage() {
       </div>
 
       {/* Content Area */}
-      <div style={styles.content}>
+      <div className="bg-white rounded-lg p-2 md:p-3 xl:p-4 shadow-md max-h-[calc(100vh-160px)] md:max-h-[calc(100vh-180px)] overflow-y-auto">
         
         {/* SAFETY DATA FORM */}
         {activeTab === 'safety' && (
-          <div style={styles.section}>
-            <div style={styles.sectionHeader}>
-              <h2 style={styles.sectionTitle}>Edit Data Keselamatan</h2>
-              <div style={styles.actions}>
-                <button onClick={handleReset} style={styles.btnDanger}>Reset Default</button>
-                <button onClick={handleSafetySave} style={styles.btnPrimary}>Simpan Perubahan</button>
+          <div>
+            <div className="flex justify-between items-center mb-3 md:mb-4">
+              <h2 className="text-sm md:text-base xl:text-lg font-bold m-0">Edit Data Keselamatan</h2>
+              <div className="flex gap-2">
+                <button onClick={handleReset} className="px-2 md:px-3 py-1 md:py-1.5 bg-red-500 text-white border-none rounded-md font-semibold cursor-pointer text-[10px] md:text-xs hover:bg-red-600">Reset Default</button>
+                <button onClick={handleSafetySave} className="px-2 md:px-3 py-1 md:py-1.5 bg-sky-600 text-white border-none rounded-md font-semibold cursor-pointer text-[10px] md:text-xs hover:bg-sky-700">Simpan</button>
               </div>
             </div>
 
-            <div style={styles.grid}>
-              <div style={styles.card}>
-                <label style={styles.label}>Jumlah Tenaga Kerja</label>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+              <div className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
+                <label className="block text-[9px] md:text-[10px] xl:text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Jumlah Tenaga Kerja</label>
                 <input 
                   type="number" 
                   value={safetyData.workers}
                   onChange={(e) => handleSafetyChange("workers", parseInt(e.target.value) || 0)}
-                  style={styles.input}
+                  className="w-full p-1.5 md:p-2 rounded-md border border-slate-300 text-sm md:text-base font-bold text-slate-900 bg-white"
                 />
               </div>
-              <div style={styles.card}>
-                <label style={styles.label}>Kecelakaan Kerja</label>
+              <div className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
+                <label className="block text-[9px] md:text-[10px] xl:text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Kecelakaan Kerja</label>
                 <input 
                   type="number" 
                   value={safetyData.accidents}
                   onChange={(e) => handleSafetyChange("accidents", parseInt(e.target.value) || 0)}
-                  style={styles.input}
+                  className="w-full p-1.5 md:p-2 rounded-md border border-slate-300 text-sm md:text-base font-bold text-slate-900 bg-white"
                 />
               </div>
-              <div style={styles.card}>
-                <label style={styles.label}>Total Jam Kerja</label>
+              <div className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
+                <label className="block text-[9px] md:text-[10px] xl:text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Total Jam Kerja</label>
                 <input 
                   type="number" 
                   value={safetyData.workHours}
                   onChange={(e) => handleSafetyChange("workHours", parseInt(e.target.value) || 0)}
-                  style={styles.input}
+                  className="w-full p-1.5 md:p-2 rounded-md border border-slate-300 text-sm md:text-base font-bold text-slate-900 bg-white"
                 />
               </div>
-              <div style={styles.card}>
-                <label style={styles.label}>Jam Kerja Aman</label>
+              <div className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
+                <label className="block text-[9px] md:text-[10px] xl:text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Jam Kerja Aman</label>
                 <input 
                   type="number" 
                   value={safetyData.safeHours}
                   onChange={(e) => handleSafetyChange("safeHours", parseInt(e.target.value) || 0)}
-                  style={styles.input}
+                  className="w-full p-1.5 md:p-2 rounded-md border border-slate-300 text-sm md:text-base font-bold text-slate-900 bg-white"
                 />
               </div>
-              <div style={styles.card}>
-                <label style={styles.label}>Temperatur (°C)</label>
+              <div className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
+                <label className="block text-[9px] md:text-[10px] xl:text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Temperatur (°C)</label>
                 <input 
                   type="number" 
                   value={safetyData.temperature}
                   onChange={(e) => handleSafetyChange("temperature", parseInt(e.target.value) || 0)}
-                  style={styles.input}
+                  className="w-full p-1.5 md:p-2 rounded-md border border-slate-300 text-sm md:text-base font-bold text-slate-900 bg-white"
                 />
               </div>
-              <div style={styles.card}>
-                <label style={styles.label}>Kelembaban (%)</label>
+              <div className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
+                <label className="block text-[9px] md:text-[10px] xl:text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Kelembaban (%)</label>
                 <input 
                   type="number" 
                   value={safetyData.humidity}
                   onChange={(e) => handleSafetyChange("humidity", parseInt(e.target.value) || 0)}
-                  style={styles.input}
+                  className="w-full p-1.5 md:p-2 rounded-md border border-slate-300 text-sm md:text-base font-bold text-slate-900 bg-white"
                 />
               </div>
             </div>
@@ -278,27 +278,27 @@ export default function AdminPage() {
 
         {/* ANNOUNCEMENTS */}
         {activeTab === 'announcements' && (
-          <div style={styles.section}>
-            <div style={styles.sectionHeader}>
-              <h2 style={styles.sectionTitle}>Kelola Pengumuman</h2>
-              <button onClick={addAnnouncement} style={styles.btnSuccess}>+ Tambah Pengumuman</button>
+          <div>
+            <div className="flex justify-between items-center mb-3 md:mb-4">
+              <h2 className="text-sm md:text-base xl:text-lg font-bold m-0">Kelola Pengumuman</h2>
+              <button onClick={addAnnouncement} className="px-2 md:px-3 py-1 md:py-1.5 bg-green-500 text-white border-none rounded-md font-semibold cursor-pointer text-[10px] md:text-xs hover:bg-green-600">+ Tambah</button>
             </div>
             
-            <div style={styles.list}>
+            <div className="flex flex-col gap-2 md:gap-3">
               {announcements.map((item) => (
-                <div key={item.id} style={styles.listItem}>
-                  <div style={styles.listHeader}>
+                <div key={item.id} className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
+                  <div className="flex justify-between items-center mb-2 gap-2">
                     <input 
                       value={item.title}
                       onChange={(e) => updateAnnouncement(item.id, "title", e.target.value)}
-                      style={styles.inputTitle}
+                      className="flex-1 p-1.5 md:p-2 rounded-md border border-slate-300 text-xs md:text-sm font-bold"
                       placeholder="Judul Pengumuman"
                     />
-                    <div style={styles.controls}>
+                    <div className="flex gap-1 md:gap-2 items-center">
                       <select 
                         value={item.priority}
                         onChange={(e) => updateAnnouncement(item.id, "priority", e.target.value)}
-                        style={styles.select}
+                        className="p-1 md:p-1.5 rounded-md border border-slate-300 bg-white font-medium text-[10px] md:text-xs"
                       >
                         <option value="normal">Normal</option>
                         <option value="urgent">Urgent</option>
@@ -306,138 +306,138 @@ export default function AdminPage() {
                       </select>
                       <button 
                         onClick={() => updateAnnouncement(item.id, "active", !item.active)}
-                        style={item.active ? styles.badgeActive : styles.badgeInactive}
+                        className={`px-2 py-1 rounded-full font-semibold text-[9px] md:text-[10px] cursor-pointer ${item.active ? 'bg-green-100 text-green-800 border border-green-300' : 'bg-slate-100 text-slate-500 border border-slate-300'}`}
                       >
                         {item.active ? "Aktif" : "Non-Aktif"}
                       </button>
-                      <button onClick={() => deleteAnnouncement(item.id)} style={styles.btnDangerSmall}>Hapus</button>
+                      <button onClick={() => deleteAnnouncement(item.id)} className="px-2 py-1 bg-red-50 text-red-500 border border-red-200 rounded-md font-semibold cursor-pointer text-[9px] md:text-[10px] hover:bg-red-100">Hapus</button>
                     </div>
                   </div>
                   <textarea 
                     value={item.content}
                     onChange={(e) => updateAnnouncement(item.id, "content", e.target.value)}
-                    style={styles.textarea}
+                    className="w-full p-2 rounded-md border border-slate-300 min-h-[60px] md:min-h-[80px] text-xs md:text-sm font-sans resize-y"
                     placeholder="Isi pengumuman..."
                   />
                 </div>
               ))}
-              {announcements.length === 0 && <p style={styles.empty}>Belum ada pengumuman.</p>}
+              {announcements.length === 0 && <p className="text-center text-slate-500 italic py-4 text-xs md:text-sm">Belum ada pengumuman.</p>}
             </div>
           </div>
         )}
 
         {/* BIRTHDAYS */}
         {activeTab === 'birthdays' && (
-          <div style={styles.section}>
-            <div style={styles.sectionHeader}>
-              <h2 style={styles.sectionTitle}>Data Ulang Tahun Karyawan</h2>
-              <button onClick={addBirthday} style={styles.btnSuccess}>+ Tambah Karyawan</button>
+          <div>
+            <div className="flex justify-between items-center mb-3 md:mb-4">
+              <h2 className="text-sm md:text-base xl:text-lg font-bold m-0">Data Ulang Tahun Karyawan</h2>
+              <button onClick={addBirthday} className="px-2 md:px-3 py-1 md:py-1.5 bg-green-500 text-white border-none rounded-md font-semibold cursor-pointer text-[10px] md:text-xs hover:bg-green-600">+ Tambah</button>
             </div>
 
-            <div style={styles.list}>
+            <div className="flex flex-col gap-2 md:gap-3">
               {birthdays.map((item) => (
-                <div key={item.id} style={styles.listItem}>
-                  <div style={styles.gridRow}>
-                    <div style={{flex: 1}}>
-                      <label style={styles.smallLabel}>Nama Lengkap</label>
+                <div key={item.id} className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
+                  <div className="flex gap-2 items-start flex-wrap">
+                    <div className="flex-1 min-w-[120px]">
+                      <label className="block text-[8px] md:text-[9px] font-semibold text-slate-500 mb-0.5 uppercase">Nama Lengkap</label>
                       <input 
                         value={item.name}
                         onChange={(e) => updateBirthday(item.id, "name", e.target.value)}
-                        style={styles.input}
+                        className="w-full p-1.5 rounded-md border border-slate-300 text-xs md:text-sm"
                       />
                     </div>
-                    <div style={{flex: 1}}>
-                      <label style={styles.smallLabel}>Departemen</label>
+                    <div className="flex-1 min-w-[100px]">
+                      <label className="block text-[8px] md:text-[9px] font-semibold text-slate-500 mb-0.5 uppercase">Departemen</label>
                       <input 
                         value={item.department}
                         onChange={(e) => updateBirthday(item.id, "department", e.target.value)}
-                        style={styles.input}
+                        className="w-full p-1.5 rounded-md border border-slate-300 text-xs md:text-sm"
                       />
                     </div>
-                    <div style={{width: '100px'}}>
-                      <label style={styles.smallLabel}>Tanggal (MM-DD)</label>
+                    <div className="w-[70px] md:w-[80px]">
+                      <label className="block text-[8px] md:text-[9px] font-semibold text-slate-500 mb-0.5 uppercase">Tanggal</label>
                       <input 
                         value={item.birthDate}
                         onChange={(e) => updateBirthday(item.id, "birthDate", e.target.value)}
-                        style={styles.input}
+                        className="w-full p-1.5 rounded-md border border-slate-300 text-xs md:text-sm"
                         placeholder="MM-DD"
                       />
                     </div>
-                    <div style={{flex: 1}}>
-                      <label style={styles.smallLabel}>Foto URL</label>
+                    <div className="flex-1 min-w-[120px]">
+                      <label className="block text-[8px] md:text-[9px] font-semibold text-slate-500 mb-0.5 uppercase">Foto URL</label>
                       <input 
                         value={item.photo || ''}
                         onChange={(e) => updateBirthday(item.id, "photo", e.target.value)}
-                        style={styles.input}
+                        className="w-full p-1.5 rounded-md border border-slate-300 text-xs md:text-sm"
                         placeholder="https://..."
                       />
                     </div>
-                    <div style={{display: 'flex', alignItems: 'flex-end'}}>
-                      <button onClick={() => deleteBirthday(item.id)} style={styles.btnDanger}>Hapus</button>
+                    <div className="flex items-end">
+                      <button onClick={() => deleteBirthday(item.id)} className="px-2 py-1.5 bg-red-500 text-white border-none rounded-md font-semibold cursor-pointer text-[9px] md:text-[10px] hover:bg-red-600">Hapus</button>
                     </div>
                   </div>
                 </div>
               ))}
-              {birthdays.length === 0 && <p style={styles.empty}>Belum ada data ulang tahun.</p>}
+              {birthdays.length === 0 && <p className="text-center text-slate-500 italic py-4 text-xs md:text-sm">Belum ada data ulang tahun.</p>}
             </div>
           </div>
         )}
 
         {/* CONDOLENCES */}
         {activeTab === 'condolences' && (
-          <div style={styles.section}>
-            <div style={styles.sectionHeader}>
-              <h2 style={styles.sectionTitle}>Berita Duka Cita</h2>
-              <button onClick={addCondolence} style={styles.btnSuccess}>+ Tambah Berita</button>
+          <div>
+            <div className="flex justify-between items-center mb-3 md:mb-4">
+              <h2 className="text-sm md:text-base xl:text-lg font-bold m-0">Berita Duka Cita</h2>
+              <button onClick={addCondolence} className="px-2 md:px-3 py-1 md:py-1.5 bg-green-500 text-white border-none rounded-md font-semibold cursor-pointer text-[10px] md:text-xs hover:bg-green-600">+ Tambah</button>
             </div>
 
-            <div style={styles.list}>
+            <div className="flex flex-col gap-2 md:gap-3">
               {condolences.map((item) => (
-                <div key={item.id} style={styles.listItem}>
-                  <div style={styles.listHeader}>
+                <div key={item.id} className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
+                  <div className="flex justify-between items-center mb-2 gap-2">
                     <input 
                       value={item.name}
                       onChange={(e) => updateCondolence(item.id, "name", e.target.value)}
-                      style={styles.inputTitle}
+                      className="flex-1 p-1.5 md:p-2 rounded-md border border-slate-300 text-xs md:text-sm font-bold"
                       placeholder="Nama Almarhum/ah"
                     />
-                    <div style={styles.controls}>
+                    <div className="flex gap-1 md:gap-2 items-center">
                       <input 
                         type="date"
                         value={item.date}
                         onChange={(e) => updateCondolence(item.id, "date", e.target.value)}
-                        style={styles.inputDate}
+                        className="p-1 md:p-1.5 rounded-md border border-slate-300 text-[10px] md:text-xs"
                       />
                       <button 
                         onClick={() => updateCondolence(item.id, "active", !item.active)}
-                        style={item.active ? styles.badgeActive : styles.badgeInactive}
+                        className={`px-2 py-1 rounded-full font-semibold text-[9px] md:text-[10px] cursor-pointer ${item.active ? 'bg-green-100 text-green-800 border border-green-300' : 'bg-slate-100 text-slate-500 border border-slate-300'}`}
                       >
                         {item.active ? "Aktif" : "Non-Aktif"}
                       </button>
-                      <button onClick={() => deleteCondolence(item.id)} style={styles.btnDangerSmall}>Hapus</button>
+                      <button onClick={() => deleteCondolence(item.id)} className="px-2 py-1 bg-red-50 text-red-500 border border-red-200 rounded-md font-semibold cursor-pointer text-[9px] md:text-[10px] hover:bg-red-100">Hapus</button>
                     </div>
                   </div>
-                  <div style={styles.formGroup}>
-                     <label style={styles.smallLabel}>Departemen</label>
+                  <div className="mb-2">
+                     <label className="block text-[8px] md:text-[9px] font-semibold text-slate-500 mb-0.5 uppercase">Departemen</label>
                      <input 
                         value={item.department}
                         onChange={(e) => updateCondolence(item.id, "department", e.target.value)}
-                        style={styles.input}
+                        className="w-full p-1.5 rounded-md border border-slate-300 text-xs md:text-sm"
                         placeholder="Departemen"
                       />
                   </div>
-                  <div style={styles.formGroup}>
-                    <label style={styles.smallLabel}>Pesan Duka</label>
+                  <div>
+                    <label className="block text-[8px] md:text-[9px] font-semibold text-slate-500 mb-0.5 uppercase">Pesan Duka</label>
                     <textarea 
                       value={item.message}
                       onChange={(e) => updateCondolence(item.id, "message", e.target.value)}
-                      style={styles.textarea}
+                      className="w-full p-2 rounded-md border border-slate-300 min-h-[50px] md:min-h-[70px] text-xs md:text-sm font-sans resize-y"
                       placeholder="Isi pesan duka..."
                     />
                   </div>
                 </div>
               ))}
-              {condolences.length === 0 && <p style={styles.empty}>Belum ada berita duka.</p>}
+              {condolences.length === 0 && <p className="text-center text-slate-500 italic py-4 text-xs md:text-sm">Belum ada berita duka.</p>}
             </div>
           </div>
         )}
@@ -445,265 +445,4 @@ export default function AdminPage() {
       </div>
     </div>
   )
-}
-
-// STYLES
-const styles: Record<string, React.CSSProperties> = {
-  container: {
-    minHeight: "100vh",
-    backgroundColor: "#f1f5f9",
-    padding: "2rem",
-    fontFamily: "'Inter', sans-serif",
-    color: "#0f172a",
-  },
-  header: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "2rem",
-    backgroundColor: "white",
-    padding: "1.5rem 2rem",
-    borderRadius: "1rem",
-    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-  },
-  title: {
-    fontSize: "1.875rem",
-    fontWeight: "800",
-    color: "#0f172a",
-    margin: 0,
-  },
-  subtitle: {
-    color: "#64748b",
-    marginTop: "0.25rem",
-    margin: 0,
-  },
-  backButton: {
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#0f172a",
-    color: "white",
-    textDecoration: "none",
-    borderRadius: "0.5rem",
-    fontWeight: "600",
-    transition: "all 0.2s",
-  },
-  message: {
-    backgroundColor: "#dcfce7",
-    color: "#166534",
-    padding: "1rem",
-    borderRadius: "0.5rem",
-    marginBottom: "2rem",
-    fontWeight: "600",
-    border: "1px solid #86efac",
-  },
-  tabs: {
-    display: "flex",
-    gap: "1rem",
-    marginBottom: "2rem",
-    borderBottom: "2px solid #e2e8f0",
-    paddingBottom: "1px",
-  },
-  tab: {
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "transparent",
-    border: "none",
-    borderBottom: "2px solid transparent",
-    color: "#64748b",
-    fontWeight: "600",
-    cursor: "pointer",
-    fontSize: "1rem",
-    marginBottom: "-2px",
-    transition: "all 0.2s",
-  },
-  activeTab: {
-    color: "#0284c7",
-    borderBottom: "2px solid #0284c7",
-  },
-  content: {
-    backgroundColor: "white",
-    borderRadius: "1rem",
-    padding: "2rem",
-    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-  },
-  section: {
-    animation: "fadeIn 0.3s ease-in-out",
-  },
-  sectionHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "2rem",
-  },
-  sectionTitle: {
-    fontSize: "1.5rem",
-    fontWeight: "700",
-    margin: 0,
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: "1.5rem",
-  },
-  card: {
-    backgroundColor: "#f8fafc",
-    padding: "1.5rem",
-    borderRadius: "0.75rem",
-    border: "1px solid #e2e8f0",
-  },
-  label: {
-    display: "block",
-    fontSize: "0.875rem",
-    fontWeight: "600",
-    color: "#64748b",
-    marginBottom: "0.5rem",
-    textTransform: "uppercase",
-    letterSpacing: "0.05em",
-  },
-  input: {
-    width: "100%",
-    padding: "0.75rem",
-    borderRadius: "0.5rem",
-    border: "1px solid #cbd5e1",
-    fontSize: "1.125rem",
-    fontWeight: "700",
-    color: "#0f172a",
-    backgroundColor: "white",
-  },
-  actions: {
-    display: "flex",
-    gap: "1rem",
-  },
-  btnPrimary: {
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#0284c7",
-    color: "white",
-    border: "none",
-    borderRadius: "0.5rem",
-    fontWeight: "600",
-    cursor: "pointer",
-  },
-  btnSuccess: {
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#22c55e",
-    color: "white",
-    border: "none",
-    borderRadius: "0.5rem",
-    fontWeight: "600",
-    cursor: "pointer",
-  },
-  btnDanger: {
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#ef4444",
-    color: "white",
-    border: "none",
-    borderRadius: "0.5rem",
-    fontWeight: "600",
-    cursor: "pointer",
-  },
-  btnDangerSmall: {
-    padding: "0.5rem 1rem",
-    backgroundColor: "#fee2e2",
-    color: "#ef4444",
-    border: "1px solid #fecaca",
-    borderRadius: "0.5rem",
-    fontWeight: "600",
-    cursor: "pointer",
-    fontSize: "0.875rem",
-  },
-  list: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "1.5rem",
-  },
-  listItem: {
-    backgroundColor: "#f8fafc",
-    padding: "1.5rem",
-    borderRadius: "0.75rem",
-    border: "1px solid #e2e8f0",
-  },
-  listHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "1rem",
-    gap: "1rem",
-  },
-  inputTitle: {
-    flex: 1,
-    padding: "0.75rem",
-    borderRadius: "0.5rem",
-    border: "1px solid #cbd5e1",
-    fontSize: "1.25rem",
-    fontWeight: "700",
-  },
-  controls: {
-    display: "flex",
-    gap: "0.75rem",
-    alignItems: "center",
-  },
-  select: {
-    padding: "0.75rem",
-    borderRadius: "0.5rem",
-    border: "1px solid #cbd5e1",
-    backgroundColor: "white",
-    fontWeight: "500",
-  },
-  textarea: {
-    width: "100%",
-    padding: "1rem",
-    borderRadius: "0.5rem",
-    border: "1px solid #cbd5e1",
-    minHeight: "100px",
-    fontSize: "1rem",
-    fontFamily: "inherit",
-    resize: "vertical",
-    marginTop: "0.5rem",
-  },
-  badgeActive: {
-    padding: "0.5rem 1rem",
-    backgroundColor: "#dcfce7",
-    color: "#166534",
-    border: "1px solid #86efac",
-    borderRadius: "9999px",
-    fontWeight: "600",
-    fontSize: "0.875rem",
-    cursor: "pointer",
-  },
-  badgeInactive: {
-    padding: "0.5rem 1rem",
-    backgroundColor: "#f1f5f9",
-    color: "#64748b",
-    border: "1px solid #cbd5e1",
-    borderRadius: "9999px",
-    fontWeight: "600",
-    fontSize: "0.875rem",
-    cursor: "pointer",
-  },
-  empty: {
-    textAlign: "center",
-    color: "#64748b",
-    fontStyle: "italic",
-    padding: "2rem",
-  },
-  gridRow: {
-    display: "flex",
-    gap: "1rem",
-    alignItems: "flex-start",
-    flexWrap: "wrap",
-  },
-  smallLabel: {
-    display: "block",
-    fontSize: "0.75rem",
-    fontWeight: "600",
-    color: "#64748b",
-    marginBottom: "0.25rem",
-    textTransform: "uppercase",
-  },
-  inputDate: {
-    padding: "0.65rem",
-    borderRadius: "0.5rem",
-    border: "1px solid #cbd5e1",
-  },
-  formGroup: {
-    marginBottom: "1rem",
-  }
 }

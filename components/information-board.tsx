@@ -322,27 +322,27 @@ export function InformationBoard() {
           </div>
         </main>
 
-        {/* Footer Banner - Running Text */}
-        <footer className="bg-[#0df2f2] text-slate-950 rounded-lg md:rounded-xl px-3 md:px-4 xl:px-6 py-2 md:py-2.5 xl:py-3 shadow-[0_0_50px_rgba(13,242,242,0.3)] border-t-2 xl:border-t-3 border-white/30 shrink-0">
-          <div className="marquee-container flex items-center">
-            <div className="animate-marquee flex items-center gap-3 md:gap-4 xl:gap-6">
-              <span className="material-symbols-outlined text-base md:text-lg xl:text-2xl font-black">stars</span>
-              <p className="text-sm md:text-base xl:text-xl font-black italic tracking-wide uppercase leading-none">
+        {/* Footer Banner - Running Text - Always visible at bottom */}
+        <footer className="bg-[#0df2f2] text-slate-950 rounded-lg md:rounded-xl px-2 md:px-3 xl:px-4 py-1.5 md:py-2 xl:py-2.5 shadow-[0_0_50px_rgba(13,242,242,0.3)] border-t-2 border-white/30 shrink-0 min-h-[40px] md:min-h-[48px] flex items-center">
+          <div className="marquee-container flex items-center w-full overflow-hidden">
+            <div className="animate-marquee flex items-center gap-2 md:gap-3 xl:gap-4 whitespace-nowrap">
+              <span className="material-symbols-outlined text-sm md:text-base xl:text-xl font-black">stars</span>
+              <p className="text-xs md:text-sm xl:text-lg font-black italic tracking-wide uppercase leading-none">
                 ZERO ACCIDENT BUKAN TARGET - ITU BUDAYA!
               </p>
-              <span className="material-symbols-outlined text-base md:text-lg xl:text-2xl font-black">stars</span>
-              <span className="mx-6 md:mx-10 xl:mx-12"></span>
-              <span className="material-symbols-outlined text-base md:text-lg xl:text-2xl font-black">health_and_safety</span>
-              <p className="text-sm md:text-base xl:text-xl font-black italic tracking-wide uppercase leading-none">
+              <span className="material-symbols-outlined text-sm md:text-base xl:text-xl font-black">stars</span>
+              <span className="mx-4 md:mx-8 xl:mx-10"></span>
+              <span className="material-symbols-outlined text-sm md:text-base xl:text-xl font-black">health_and_safety</span>
+              <p className="text-xs md:text-sm xl:text-lg font-black italic tracking-wide uppercase leading-none">
                 KESELAMATAN ADALAH PRIORITAS UTAMA
               </p>
-              <span className="material-symbols-outlined text-base md:text-lg xl:text-2xl font-black">health_and_safety</span>
-              <span className="mx-6 md:mx-10 xl:mx-12"></span>
-              <span className="material-symbols-outlined text-base md:text-lg xl:text-2xl font-black">verified_user</span>
-              <p className="text-sm md:text-base xl:text-xl font-black italic tracking-wide uppercase leading-none">
+              <span className="material-symbols-outlined text-sm md:text-base xl:text-xl font-black">health_and_safety</span>
+              <span className="mx-4 md:mx-8 xl:mx-10"></span>
+              <span className="material-symbols-outlined text-sm md:text-base xl:text-xl font-black">verified_user</span>
+              <p className="text-xs md:text-sm xl:text-lg font-black italic tracking-wide uppercase leading-none">
                 BEKERJA AMAN, PULANG SELAMAT
               </p>
-              <span className="material-symbols-outlined text-base md:text-lg xl:text-2xl font-black">verified_user</span>
+              <span className="material-symbols-outlined text-sm md:text-base xl:text-xl font-black">verified_user</span>
             </div>
           </div>
         </footer>
