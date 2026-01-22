@@ -322,14 +322,28 @@ export function InformationBoard() {
           </div>
         </main>
 
-        {/* Footer Banner - Responsive */}
+        {/* Footer Banner - Running Text */}
         <footer className="bg-[#0df2f2] text-slate-950 rounded-xl lg:rounded-2xl px-4 sm:px-6 lg:px-10 py-3 lg:py-5 shadow-[0_0_50px_rgba(13,242,242,0.3)] border-t-2 lg:border-t-4 border-white/30 shrink-0">
-          <div className="flex items-center justify-center gap-3 sm:gap-4 lg:gap-8 overflow-hidden">
-            <span className="material-symbols-outlined text-xl sm:text-2xl lg:text-4xl font-black">stars</span>
-            <p className="text-base sm:text-xl md:text-2xl lg:text-4xl font-black italic tracking-wide lg:tracking-[0.1em] uppercase leading-none text-center">
-              Zero Accident Bukan Target - Itu Budaya!
-            </p>
-            <span className="material-symbols-outlined text-xl sm:text-2xl lg:text-4xl font-black">stars</span>
+          <div className="marquee-container flex items-center">
+            <div className="animate-marquee flex items-center gap-4 sm:gap-6 lg:gap-8">
+              <span className="material-symbols-outlined text-xl sm:text-2xl lg:text-4xl font-black">stars</span>
+              <p className="text-base sm:text-xl md:text-2xl lg:text-4xl font-black italic tracking-wide lg:tracking-[0.1em] uppercase leading-none">
+                ZERO ACCIDENT BUKAN TARGET - ITU BUDAYA!
+              </p>
+              <span className="material-symbols-outlined text-xl sm:text-2xl lg:text-4xl font-black">stars</span>
+              <span className="mx-8 lg:mx-16"></span>
+              <span className="material-symbols-outlined text-xl sm:text-2xl lg:text-4xl font-black">health_and_safety</span>
+              <p className="text-base sm:text-xl md:text-2xl lg:text-4xl font-black italic tracking-wide lg:tracking-[0.1em] uppercase leading-none">
+                KESELAMATAN ADALAH PRIORITAS UTAMA
+              </p>
+              <span className="material-symbols-outlined text-xl sm:text-2xl lg:text-4xl font-black">health_and_safety</span>
+              <span className="mx-8 lg:mx-16"></span>
+              <span className="material-symbols-outlined text-xl sm:text-2xl lg:text-4xl font-black">verified_user</span>
+              <p className="text-base sm:text-xl md:text-2xl lg:text-4xl font-black italic tracking-wide lg:tracking-[0.1em] uppercase leading-none">
+                BEKERJA AMAN, PULANG SELAMAT
+              </p>
+              <span className="material-symbols-outlined text-xl sm:text-2xl lg:text-4xl font-black">verified_user</span>
+            </div>
           </div>
         </footer>
       </div>
