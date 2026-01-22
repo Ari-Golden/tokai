@@ -325,7 +325,7 @@ export function InformationBoard() {
         </main>
 
         {/* Footer Banner - Running Text - Always visible at bottom */}
-        <footer className="bg-[#0df2f2] text-slate-950 rounded-lg md:rounded-xl px-2 md:px-3 xl:px-4 py-1.5 md:py-2 xl:py-2.5 shadow-[0_0_50px_rgba(13,242,242,0.3)] border-t-2 border-white/30 shrink-0 min-h-[40px] md:min-h-[48px] flex items-center">
+        <footer className="bg-[#0df2f2] text-red-600 rounded-lg md:rounded-xl px-2 md:px-3 xl:px-4 py-1.5 md:py-2 xl:py-2.5 shadow-[0_0_50px_rgba(13,242,242,0.3)] border-t-2 border-white/30 shrink-0 min-h-[40px] md:min-h-[48px] flex items-center">
           <div className="marquee-container flex items-center w-full overflow-hidden">
             <div className="animate-marquee flex items-center gap-2 md:gap-3 xl:gap-4 whitespace-nowrap">
               <span className="material-symbols-outlined text-sm md:text-base xl:text-xl font-black">stars</span>
