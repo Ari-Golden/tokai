@@ -39,7 +39,7 @@ export function SafetyDashboard() {
               SAFETY PERFORMANCE DASHBOARD
             </h1>
             <p className="text-sm md:text-base text-cyan-300 mt-1 font-medium">
-              PT. Tokai Rubber Indonesia — Manufacturing Division
+              PT. Tokai Rubber Indonesia
             </p>
           </div>
           <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
