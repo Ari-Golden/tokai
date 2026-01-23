@@ -12,6 +12,7 @@ import {
   type BirthdayEmployee,
   type CondolenceNews,
 } from "@/lib/storage"
+import { ClockCanvas } from "./clock-canvas"
 
 export function InformationBoard() {
   const [safetyData, setSafetyData] = useState<SafetyData | null>(null)
@@ -127,14 +128,9 @@ export function InformationBoard() {
           
           {/* DateTime & Status */}
           <div className="flex items-center gap-3 md:gap-6 xl:gap-8">
-            {/* DateTime - Heavy Optimization for TV */}
-            <div className="flex flex-col items-end gap-1 relative isolate">
-              {/* Clock Wrapper with explicit BG used as mask */}
-              <div className="relative bg-slate-900 px-3 py-1 -mr-3 rounded-lg z-20">
-                <span className="text-[#0df2f2] text-xl md:text-2xl xl:text-4xl font-bold tabular-nums tracking-widest leading-relaxed block">
-                  {dateTime.time}
-                </span>
-              </div>
+            {/* DateTime - Canvas Implementation to fix TV artifacts */}
+            <div className="flex flex-col items-end gap-1">
+              <ClockCanvas />
               <span className="text-slate-400 text-[10px] md:text-xs xl:text-sm font-semibold uppercase tracking-widest relative z-10 pt-1">
                 {dateTime.date}
               </span>
