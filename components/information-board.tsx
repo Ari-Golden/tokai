@@ -90,14 +90,14 @@ export function InformationBoard() {
           {/* Logo & Title */}
           <div className="flex items-center gap-3 md:gap-4 xl:gap-6 min-w-0">
             <img
-              src="/tokai.png"
-              alt="Tokai Logo"
-              className="h-8 md:h-10 xl:h-14 w-auto object-contain shrink-0"
+              src="/TRID.svg"
+              alt="TRID Logo"
+              className="h-16 md:h-20 xl:h-32 w-auto object-contain shrink-0"
             />
             <div className="min-w-0">
-              <h1 className="text-white text-sm md:text-lg xl:text-2xl font-black leading-none tracking-tight whitespace-nowrap">PT. TOKAI RUBBER INDONESIA</h1>
+              <h1 className="text-white text-3xl md:text-5xl xl:text-6xl font-black leading-none tracking-tight whitespace-nowrap">PT. TOKAI RUBBER INDONESIA</h1>
               <div className="flex items-center gap-1.5 md:gap-2 mt-0.5 md:mt-1">
-                <p className="text-[#0df2f2] text-[10px] md:text-xs xl:text-sm font-extrabold tracking-wider uppercase whitespace-nowrap">Safety Performance Board</p>
+                <p className="text-[#0df2f2] text-lg md:text-2xl xl:text-3xl font-extrabold tracking-wider uppercase whitespace-nowrap">Safety Performance Board</p>
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@ export function InformationBoard() {
           <div className="flex items-center gap-3 md:gap-6 xl:gap-8">
             {/* DateTime */}
             <div className="flex flex-col items-end">
-              <span className="text-[#0df2f2] text-xl md:text-2xl xl:text-4xl font-mono font-black neon-glow leading-none">{dateTime.time}</span>
+              <span className="text-[#0df2f2] text-xl md:text-2xl xl:text-4xl font-mono font-black leading-none">{dateTime.time}</span>
               <span className="text-slate-400 text-[10px] md:text-xs xl:text-sm font-semibold uppercase tracking-widest">{dateTime.date}</span>
             </div>
             <div className="hidden md:block h-10 xl:h-14 w-px bg-[#0df2f2]/20"></div>
