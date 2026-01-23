@@ -22,7 +22,7 @@ export function ClockCanvas() {
       // Set Font & Style
       // Scaling font based on canvas width (approx 300px for desktop)
       // 36px matches roughly text-4xl
-      ctx.font = "bold 36px 'Courier New', monospace"
+      ctx.font = "bold 29px 'Inter', sans-serif"
       ctx.fillStyle = "#0df2f2" // Cyan color
       ctx.textAlign = "right"
       ctx.textBaseline = "middle"
