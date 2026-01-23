@@ -110,18 +110,19 @@ export function InformationBoard() {
               <span className="text-slate-400 text-[10px] md:text-xs xl:text-sm font-semibold uppercase tracking-widest">{dateTime.date}</span>
             </div>
             <div className="hidden md:block h-10 xl:h-14 w-px bg-[#0df2f2]/20"></div>
-            {/* System Status */}
-            <div className="flex flex-col items-center gap-0.5">
-              <span className="text-green-400 font-bold text-[8px] md:text-[9px] xl:text-[10px] uppercase tracking-tighter">System Status</span>
-              <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 rounded-md md:rounded-lg bg-green-500/10 border border-green-500/30">
-                <div className="size-1.5 md:size-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.8)]"></div>
-                <span className="text-green-400 text-[10px] md:text-xs xl:text-sm font-black uppercase whitespace-nowrap">All Systems Normal</span>
+            
+            <div className="flex flex-col items-end gap-1">
+              {/* Admin Link */}
+              <Link href="/admin" className="p-1 rounded-lg hover:bg-white/10 transition-all hover:scale-110 leading-none">
+                <span className="material-symbols-outlined text-[#0df2f2] text-xl md:text-2xl xl:text-3xl">settings</span>
+              </Link>
+              
+              {/* System Status - Moved & Scaled Down */}
+              <div className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-green-500/10 border border-green-500/30">
+                <div className="size-1 md:size-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                <span className="text-green-400 text-[6px] md:text-[8px] font-bold uppercase whitespace-nowrap">Systems Normal</span>
               </div>
             </div>
-            {/* Admin Link */}
-            <Link href="/admin" className="p-1.5 rounded-lg hover:bg-white/10 transition-all hover:scale-110">
-              <span className="material-symbols-outlined text-[#0df2f2] text-lg md:text-xl xl:text-2xl">settings</span>
-            </Link>
           </div>
         </header>
 
