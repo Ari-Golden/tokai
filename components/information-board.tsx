@@ -113,7 +113,7 @@ export function InformationBoard() {
           {/* Logo & Title */}
           <div className="flex items-center gap-3 md:gap-4 xl:gap-6 min-w-0">
             <img
-              src="/TRID.svg"
+              src="/TRID1.svg"
               alt="TRID Logo"
               className="h-16 md:h-20 xl:h-32 w-auto object-contain shrink-0"
             />
