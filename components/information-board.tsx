@@ -95,9 +95,9 @@ export function InformationBoard() {
               className="h-16 md:h-20 xl:h-32 w-auto object-contain shrink-0"
             />
             <div className="min-w-0">
-              <h1 className="text-white text-3xl md:text-5xl xl:text-6xl font-black leading-none tracking-tight whitespace-nowrap">PT. TOKAI RUBBER INDONESIA</h1>
+              <h1 className="text-white text-xl md:text-3xl xl:text-4xl font-black leading-none tracking-tight whitespace-nowrap">PT. TOKAI RUBBER INDONESIA</h1>
               <div className="flex items-center gap-1.5 md:gap-2 mt-0.5 md:mt-1">
-                <p className="text-[#0df2f2] text-lg md:text-2xl xl:text-3xl font-extrabold tracking-wider uppercase whitespace-nowrap">Safety Performance Board</p>
+                <p className="text-[#0df2f2] text-sm md:text-lg xl:text-xl font-extrabold tracking-wider uppercase whitespace-nowrap">Safety Performance Board</p>
               </div>
             </div>
           </div>
