@@ -61,9 +61,15 @@ export function InformationBoard() {
         "Juli", "Agustus", "September", "Oktober", "November", "Desember"
       ]
 
-      setDateTime({
-        date: `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`,
-        time: `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")}`,
+      const newDate = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`
+      const newTime = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`
+
+      setDateTime(prev => {
+        if (prev.date === newDate && prev.time === newTime) return prev
+        return {
+          date: newDate,
+          time: newTime,
+        }
       })
     }
 
@@ -128,7 +134,7 @@ export function InformationBoard() {
           
           {/* DateTime & Status */}
           <div className="flex items-center gap-3 md:gap-6 xl:gap-8">
-            {/* DateTime - Canvas Implementation to fix TV artifacts */}
+            {/* DateTime - Canvas Implementation (HH:MM:SS) */}
             <div className="flex flex-col items-end gap-1">
               <ClockCanvas />
               <span className="text-slate-400 text-[10px] md:text-xs xl:text-sm font-semibold uppercase tracking-widest relative z-10 pt-1">
