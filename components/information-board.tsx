@@ -128,14 +128,15 @@ export function InformationBoard() {
           {/* DateTime & Status */}
           <div className="flex items-center gap-3 md:gap-6 xl:gap-8">
             {/* DateTime */}
-            <div className="flex flex-col items-end">
-              <span 
-                className="text-[#0df2f2] text-xl md:text-2xl xl:text-4xl font-mono font-bold leading-normal tabular-nums transform-gpu"
-                style={{ transform: "translateZ(0)", willChange: "contents" }}
-              >
-                {dateTime.time}
-              </span>
-              <span className="text-slate-400 text-[10px] md:text-xs xl:text-sm font-semibold uppercase tracking-widest">{dateTime.date}</span>
+            <div className="flex flex-col items-end gap-2">
+              <div className="bg-slate-900 px-2 py-1 rounded-md -mr-2 border border-slate-800/50 shadow-sm">
+                <span 
+                  className="text-[#0df2f2] text-xl md:text-2xl xl:text-4xl font-mono font-bold leading-none tabular-nums block"
+                >
+                  {dateTime.time}
+                </span>
+              </div>
+              <span className="text-slate-400 text-[10px] md:text-xs xl:text-sm font-semibold uppercase tracking-widest relative z-10">{dateTime.date}</span>
             </div>
             <div className="hidden md:block h-10 xl:h-14 w-px bg-[#0df2f2]/20"></div>
             
