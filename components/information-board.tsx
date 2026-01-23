@@ -24,6 +24,26 @@ export function InformationBoard() {
   })
 
   useEffect(() => {
+    // Fetch Weather Data
+    const fetchWeather = async () => {
+      try {
+        const res = await fetch(
+          "https://api.open-meteo.com/v1/forecast?latitude=-6.378503683538433&longitude=107.31626373431818&current=temperature_2m,relative_humidity_2m&timezone=auto"
+        )
+        const data = await res.json()
+        
+        if (data.current) {
+          setSafetyData(prev => prev ? ({
+            ...prev,
+            temperature: Math.round(data.current.temperature_2m),
+            humidity: Math.round(data.current.relative_humidity_2m)
+          }) : null)
+        }
+      } catch (error) {
+        console.error("Failed to fetch weather:", error)
+      }
+    }
+
     // Load data
     const loadData = () => {
       setSafetyData(getData())
@@ -47,15 +67,18 @@ export function InformationBoard() {
     }
 
     loadData()
+    fetchWeather() // Fetch weather immediately
     updateDateTime()
 
     // Refresh intervals
     const timeInterval = setInterval(updateDateTime, 1000)
-    const dataInterval = setInterval(loadData, 30000) // Refresh data every 30s
+    const dataInterval = setInterval(loadData, 30000) // Refresh local data every 30s
+    const weatherInterval = setInterval(fetchWeather, 300000) // Refresh weather every 5 mins
 
     return () => {
       clearInterval(timeInterval)
       clearInterval(dataInterval)
+      clearInterval(weatherInterval)
     }
   }, [])
 
@@ -86,7 +109,7 @@ export function InformationBoard() {
       <div className="flex flex-col h-full w-full max-w-[1920px] mx-auto min-h-[calc(100vh-1rem)] md:min-h-[calc(100vh-1.5rem)] xl:min-h-[calc(100vh-2rem)]">
         
         {/* Header - Compact for HD */}
-        <header className="flex items-center justify-between border-b-2 border-[#0df2f2]/20 bg-slate-900/60 rounded-lg md:rounded-xl px-3 md:px-5 xl:px-8 py-2 md:py-3 xl:py-4 mb-2 md:mb-3 xl:mb-4 shadow-2xl backdrop-blur-md shrink-0">
+        <header className="flex items-center justify-between border-b-2 border-[#0df2f2]/20 bg-slate-900 rounded-lg md:rounded-xl px-3 md:px-5 xl:px-8 py-2 md:py-3 xl:py-4 mb-2 md:mb-3 xl:mb-4 shadow-2xl shrink-0">
           {/* Logo & Title */}
           <div className="flex items-center gap-3 md:gap-4 xl:gap-6 min-w-0">
             <img
@@ -106,7 +129,7 @@ export function InformationBoard() {
           <div className="flex items-center gap-3 md:gap-6 xl:gap-8">
             {/* DateTime */}
             <div className="flex flex-col items-end">
-              <span className="text-[#0df2f2] text-xl md:text-2xl xl:text-4xl font-mono font-black leading-none">{dateTime.time}</span>
+              <span className="text-[#0df2f2] text-xl md:text-2xl xl:text-4xl font-mono font-black leading-none tabular-nums">{dateTime.time}</span>
               <span className="text-slate-400 text-[10px] md:text-xs xl:text-sm font-semibold uppercase tracking-widest">{dateTime.date}</span>
             </div>
             <div className="hidden md:block h-10 xl:h-14 w-px bg-[#0df2f2]/20"></div>

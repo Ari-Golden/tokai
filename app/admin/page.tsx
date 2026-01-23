@@ -217,7 +217,7 @@ export default function AdminPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-3">
               <div className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
                 <label className="block text-[9px] md:text-[10px] xl:text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Jumlah Tenaga Kerja</label>
                 <input 
@@ -251,24 +251,6 @@ export default function AdminPage() {
                   type="number" 
                   value={safetyData.safeHours}
                   onChange={(e) => handleSafetyChange("safeHours", parseInt(e.target.value) || 0)}
-                  className="w-full p-1.5 md:p-2 rounded-md border border-slate-300 text-sm md:text-base font-bold text-slate-900 bg-white"
-                />
-              </div>
-              <div className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
-                <label className="block text-[9px] md:text-[10px] xl:text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Temperatur (°C)</label>
-                <input 
-                  type="number" 
-                  value={safetyData.temperature}
-                  onChange={(e) => handleSafetyChange("temperature", parseInt(e.target.value) || 0)}
-                  className="w-full p-1.5 md:p-2 rounded-md border border-slate-300 text-sm md:text-base font-bold text-slate-900 bg-white"
-                />
-              </div>
-              <div className="bg-slate-50 p-2 md:p-3 rounded-lg border border-slate-200">
-                <label className="block text-[9px] md:text-[10px] xl:text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Kelembaban (%)</label>
-                <input 
-                  type="number" 
-                  value={safetyData.humidity}
-                  onChange={(e) => handleSafetyChange("humidity", parseInt(e.target.value) || 0)}
                   className="w-full p-1.5 md:p-2 rounded-md border border-slate-300 text-sm md:text-base font-bold text-slate-900 bg-white"
                 />
               </div>
